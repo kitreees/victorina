@@ -33,13 +33,15 @@ kpop_q2 = False
 anime_q2 = False
 kpop_q3 = False
 anime_q3 = False
+kpop_q4 = False
+anime_q4 = False
 
 # bg_k = pygame.image.load('for game/bg_k.jpg')
 # bg_a = pygame.image.load('for game/bg_a.jpg')
 
 kpop_q1_img = pygame.image.load('for game/gidle.png')
 kpop_q2_img = pygame.image.load('for game/enha.jpg')
-kpop_q3_img = pygame.image.load('for game/g-idle.png')
+kpop_q3_img = pygame.image.load('for game/le serafime.jpg')
 
 txt = pygame.image.load('for game/txt.png')
 txt_rect = txt.get_rect()
@@ -80,6 +82,27 @@ itzy = pygame.image.load('for game/itzy.png')
 itzy_rect = itzy.get_rect()
 itzy_rect.x = 90
 itzy_rect.y = 580
+
+exo = pygame.image.load('for game/exo.png')
+exo_rect = exo.get_rect()
+exo_rect.x = 680
+exo_rect.y = 440
+
+aespa = pygame.image.load('for game/aespa.png')
+aespa_rect = aespa.get_rect()
+aespa_rect.x = 90
+aespa_rect.y = 440
+
+leserafim = pygame.image.load('for game/leserafim.png')
+leserafim_rect = leserafim.get_rect()
+leserafim_rect.x = 680
+leserafim_rect.y = 580
+
+everglow = pygame.image.load('for game/everglow.png')
+everglow_rect = everglow.get_rect()
+everglow_rect.x = 90
+everglow_rect.y = 580
+
 
 sc0 = pygame.image.load('for game/0.png')
 sc10 = pygame.image.load('for game/10.png')
@@ -122,18 +145,18 @@ def kpop_q1_f():
 def kpop_q2_f():
     sc.blit(bg, (0, 0))
     sc.blit(kpop_q2_img, (350, 50))
-    sc.blit(txt, txt_rect)
-    sc.blit(bts, bts_rect)
-    sc.blit(twice, twice_rect)
-    sc.blit(gidle, gidle_rect)
+    sc.blit(enhypen, enhypen_rect)
+    sc.blit(yena, yena_rect)
+    sc.blit(nmixx, nmixx_rect)
+    sc.blit(itzy, itzy_rect)
 
 def kpop_q3_f():
     sc.blit(bg, (0, 0))
     sc.blit(kpop_q3_img, (350, 50))
-    sc.blit(txt, txt_rect)
-    sc.blit(bts, bts_rect)
-    sc.blit(twice, twice_rect)
-    sc.blit(gidle, gidle_rect)
+    sc.blit(everglow, everglow_rect)
+    sc.blit(leserafim, leserafim_rect)
+    sc.blit(aespa, aespa_rect)
+    sc.blit(exo, exo_rect)
 
 
 def finish():
@@ -153,7 +176,7 @@ def finish():
 
 
 def main():
-    global main_screen, kpop_screen, anime_screen, kpop_q1, anime_q1, kpop_q2, anime_q2, kpop_q3, anime_q3, score, lose1k, lose2k
+    global main_screen, kpop_screen, anime_screen, kpop_q1, anime_q1, kpop_q2, anime_q2, kpop_q3, anime_q3, kpop_q4, anime_q4, score, lose1k, lose2k, lose3k
     score = 0
     x = 0
     y = 0
@@ -211,39 +234,39 @@ def main():
                     elif tap.colliderect(twice_rect):
                         kpop_q2 = False
                         kpop_q3 = False
-                        lose1k = True
+                        lose2k = True
                         f_sc()
                     elif tap.colliderect(bts_rect):
                         kpop_q2 = False
                         kpop_q3 = False
-                        lose1k = True
+                        lose2k = True
                         f_sc()
                     elif tap.colliderect(txt_rect):
                         kpop_q2 = False
                         kpop_q3 = False
-                        lose1k = True
+                        lose2k = True
                         f_sc()
             elif event.type == pygame.MOUSEBUTTONDOWN and kpop_q3:
                 if event.button == 1:
                     tap = pygame.Rect(x, y, 1, 1)
-                    if tap.colliderect(gidle_rect):
-                        score += 1
+                    if tap.colliderect(leserafim_rect):
+                        score += 10
                         kpop_q3 = False
                         kpop_q4 = True
-                    elif tap.colliderect(twice_rect):
+                    elif tap.colliderect(aespa_rect):
                         kpop_q3 = False
                         kpop_q4 = False
-                        lose2k = True
+                        lose3k = True
                         f_sc()
-                    elif tap.colliderect(bts_rect):
+                    elif tap.colliderect(exo_rect):
                         kpop_q3 = False
                         kpop_q4 = False
-                        lose2k = True
+                        lose3k = True
                         f_sc()
-                    elif tap.colliderect(txt_rect):
+                    elif tap.colliderect(everglow_rect):
                         kpop_q3 = False
                         kpop_q4 = False
-                        lose2k = True
+                        lose3k = True
                         f_sc()
 
         if main_screen:
