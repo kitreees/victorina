@@ -156,7 +156,7 @@ win = pygame.image.load('for game/win.png')
 
 anime_q1_img = pygame.image.load('for game/krd.png')
 anime_q2_img = pygame.image.load('for game/mha.png')
-anime_q3_img = pygame.image.load('for game/le serafime.jpg')
+anime_q3_img = pygame.image.load('for game/noragami.jpg')
 anime_q4_img = pygame.image.load('for game/seventeen.png')
 anime_q5_img = pygame.image.load('for game/purple kiss.png')
 
@@ -174,6 +174,11 @@ ds = pygame.image.load('for game/ds.png')
 ds_rect = ive.get_rect()
 ds_rect.x = 680
 ds_rect.y = 580
+
+jjk = pygame.image.load('for game/jjk.png')
+jjk_rect = jjk.get_rect()
+jjk_rect.x = 90
+jjk_rect.y = 580
 
 mha = pygame.image.load('for game/my hero academia.png')
 mha_rect = mha.get_rect()
@@ -195,10 +200,25 @@ neverland_rect = neverland.get_rect()
 neverland_rect.x = 680
 neverland_rect.y = 580
 
-jjk = pygame.image.load('for game/jjk.png')
-jjk_rect = jjk.get_rect()
-jjk_rect.x = 90
-jjk_rect.y = 580
+tm = pygame.image.load('for game/tm.png')
+tm_rect = tm.get_rect()
+tm_rect.x = 90
+tm_rect.y = 580
+
+dororo = pygame.image.load('for game/dororo.png')
+dororo_rect = dororo.get_rect()
+dororo_rect.x = 680
+dororo_rect.y = 440
+
+noragami = pygame.image.load('for game/bezdomniy bog.png')
+noragami_rect = noragami.get_rect()
+noragami_rect.x = 90
+noragami_rect.y = 440
+
+td = pygame.image.load('for game/td.png')
+td_rect = td.get_rect()
+td_rect.x = 680
+td_rect.y = 580
 
 
 lose1k = False
@@ -291,7 +311,7 @@ def anime_q1_f():
 
 def anime_q2_f():
     sc.blit(bg, (0, 0))
-    sc.blit(anime_q2_img, (454, 50))
+    sc.blit(anime_q2_img, (350, 50))
     sc.blit(titan, titan_rect)
     sc.blit(mha, mha_rect)
     sc.blit(god, god_rect)
@@ -300,10 +320,10 @@ def anime_q2_f():
 def anime_q3_f():
     sc.blit(bg, (0, 0))
     sc.blit(anime_q3_img, (350, 50))
-    sc.blit(everglow, everglow_rect)
-    sc.blit(leserafim, leserafim_rect)
-    sc.blit(aespa, aespa_rect)
-    sc.blit(exo, exo_rect)
+    sc.blit(td, td_rect)
+    sc.blit(tm, tm_rect)
+    sc.blit(noragami, noragami_rect)
+    sc.blit(dororo, dororo_rect)
 
 def anime_q4_f():
     sc.blit(bg, (0, 0))
@@ -509,6 +529,28 @@ def main():
                         anime_q2 = False
                         anime_q3 = False
                         lose2a = True
+                        f_sc_a()
+            elif event.type == pygame.MOUSEBUTTONDOWN and anime_q3:
+                if event.button == 1:
+                    tap = pygame.Rect(x, y, 1, 1)
+                    if tap.colliderect(noragami_rect):
+                        score += 10
+                        anime_q3 = False
+                        anime_q4 = True
+                    elif tap.colliderect(dororo_rect):
+                        anime_q3 = False
+                        anime_q4 = False
+                        lose3a = True
+                        f_sc_a()
+                    elif tap.colliderect(tm_rect):
+                        anime_q3 = False
+                        anime_q4 = False
+                        lose3a = True
+                        f_sc_a()
+                    elif tap.colliderect(td_rect):
+                        anime_q3 = False
+                        anime_q4 = False
+                        lose3a = True
                         f_sc_a()
 
         if main_screen:
