@@ -155,7 +155,7 @@ sc40 = pygame.image.load('for game/40.png')
 win = pygame.image.load('for game/win.png')
 
 anime_q1_img = pygame.image.load('for game/krd.png')
-anime_q2_img = pygame.image.load('for game/enha.jpg')
+anime_q2_img = pygame.image.load('for game/mha.png')
 anime_q3_img = pygame.image.load('for game/le serafime.jpg')
 anime_q4_img = pygame.image.load('for game/seventeen.png')
 anime_q5_img = pygame.image.load('for game/purple kiss.png')
@@ -174,6 +174,26 @@ ds = pygame.image.load('for game/ds.png')
 ds_rect = ive.get_rect()
 ds_rect.x = 680
 ds_rect.y = 580
+
+mha = pygame.image.load('for game/my hero academia.png')
+mha_rect = mha.get_rect()
+mha_rect.x = 90
+mha_rect.y = 580
+
+god = pygame.image.load('for game/naruto.png')
+god_rect = god.get_rect()
+god_rect.x = 680
+god_rect.y = 440
+
+titan = pygame.image.load('for game/attack on titan.png')
+titan_rect = titan.get_rect()
+titan_rect.x = 90
+titan_rect.y = 440
+
+neverland = pygame.image.load('for game/neverland.png')
+neverland_rect = neverland.get_rect()
+neverland_rect.x = 680
+neverland_rect.y = 580
 
 jjk = pygame.image.load('for game/jjk.png')
 jjk_rect = jjk.get_rect()
@@ -230,7 +250,7 @@ def kpop_q1_f():
 
 def kpop_q2_f():
     sc.blit(bg, (0, 0))
-    sc.blit(kpop_q2_img, (454, 50))
+    sc.blit(kpop_q2_img, (500, 50))
     sc.blit(enhypen, enhypen_rect)
     sc.blit(yena, yena_rect)
     sc.blit(nmixx, nmixx_rect)
@@ -271,15 +291,15 @@ def anime_q1_f():
 
 def anime_q2_f():
     sc.blit(bg, (0, 0))
-    sc.blit(kpop_q2_img, (454, 50))
-    sc.blit(enhypen, enhypen_rect)
-    sc.blit(yena, yena_rect)
-    sc.blit(nmixx, nmixx_rect)
-    sc.blit(itzy, itzy_rect)
+    sc.blit(anime_q2_img, (454, 50))
+    sc.blit(titan, titan_rect)
+    sc.blit(mha, mha_rect)
+    sc.blit(god, god_rect)
+    sc.blit(neverland, neverland_rect)
 
 def anime_q3_f():
     sc.blit(bg, (0, 0))
-    sc.blit(kpop_q3_img, (350, 50))
+    sc.blit(anime_q3_img, (350, 50))
     sc.blit(everglow, everglow_rect)
     sc.blit(leserafim, leserafim_rect)
     sc.blit(aespa, aespa_rect)
@@ -287,7 +307,7 @@ def anime_q3_f():
 
 def anime_q4_f():
     sc.blit(bg, (0, 0))
-    sc.blit(kpop_q4_img, (350, 50))
+    sc.blit(anime_q4_img, (350, 50))
     sc.blit(svt, svt_rect)
     sc.blit(xg, xg_rect)
     sc.blit(mave, mave_rect)
@@ -295,7 +315,7 @@ def anime_q4_f():
 
 def anime_q5_f():
     sc.blit(bg, (0, 0))
-    sc.blit(kpop_q5_img, (350, 50))
+    sc.blit(anime_q5_img, (350, 50))
     sc.blit(stayc, stayc_rect)
     sc.blit(ive, ive_rect)
     sc.blit(purple_kiss, purple_kiss_rect)
@@ -467,6 +487,28 @@ def main():
                         anime_q1 = False
                         anime_q2 = False
                         lose1a = True
+                        f_sc_a()
+            elif event.type == pygame.MOUSEBUTTONDOWN and anime_q2:
+                if event.button == 1:
+                    tap = pygame.Rect(x, y, 1, 1)
+                    if tap.colliderect(mha_rect):
+                        score += 10
+                        anime_q2 = False
+                        anime_q3 = True
+                    elif tap.colliderect(titan_rect):
+                        anime_q2 = False
+                        anime_q3 = False
+                        lose2a = True
+                        f_sc_a()
+                    elif tap.colliderect(neverland_rect):
+                        anime_q2 = False
+                        anime_q3 = False
+                        lose2a = True
+                        f_sc_a()
+                    elif tap.colliderect(god_rect):
+                        anime_q2 = False
+                        anime_q3 = False
+                        lose2a = True
                         f_sc_a()
 
         if main_screen:
