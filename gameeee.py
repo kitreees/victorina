@@ -158,7 +158,7 @@ anime_q1_img = pygame.image.load('for game/krd.png')
 anime_q2_img = pygame.image.load('for game/mha.png')
 anime_q3_img = pygame.image.load('for game/noragami.jpg')
 anime_q4_img = pygame.image.load('for game/bsd.jpg')
-anime_q5_img = pygame.image.load('for game/purple kiss.png')
+anime_q5_img = pygame.image.load('for game/blue lock.png')
 
 naruto = pygame.image.load('for game/naruto.png')
 naruto_rect = naruto.get_rect()
@@ -240,6 +240,25 @@ cm_rect = cm.get_rect()
 cm_rect.x = 680
 cm_rect.y = 580
 
+akame = pygame.image.load('for game/akame.png')
+akame_rect = akame.get_rect()
+akame_rect.x = 90
+akame_rect.y = 580
+
+bk = pygame.image.load('for game/black klever.png')
+bk_rect = bk.get_rect()
+bk_rect.x = 680
+bk_rect.y = 440
+
+opm = pygame.image.load('for game/opm.png')
+opm_rect = opm.get_rect()
+opm_rect.x = 90
+opm_rect.y = 440
+
+blue_lock = pygame.image.load('for game/bl.png')
+blue_lock_rect = blue_lock.get_rect()
+blue_lock_rect.x = 680
+blue_lock_rect.y = 580
 
 lose1k = False
 lose2k = False
@@ -355,11 +374,11 @@ def anime_q4_f():
 
 def anime_q5_f():
     sc.blit(bg, (0, 0))
-    sc.blit(anime_q5_img, (350, 50))
-    sc.blit(stayc, stayc_rect)
-    sc.blit(ive, ive_rect)
-    sc.blit(purple_kiss, purple_kiss_rect)
-    sc.blit(kepler, kepler_rect)
+    sc.blit(anime_q5_img, (375, 150))
+    sc.blit(blue_lock, blue_lock_rect)
+    sc.blit(opm, opm_rect)
+    sc.blit(akame, akame_rect)
+    sc.blit(bk, bk_rect)
 
 
 def finish():
@@ -593,6 +612,25 @@ def main():
                         anime_q4 = False
                         anime_q5 = False
                         lose4a = True
+                        f_sc_a()
+            elif event.type == pygame.MOUSEBUTTONDOWN and anime_q5:
+                if event.button == 1:
+                    tap = pygame.Rect(x, y, 1, 1)
+                    if tap.colliderect(blue_lock_rect):
+                        score += 10
+                        winner_a = True
+                        f_sc_a()
+                    elif tap.colliderect(bk_rect):
+                        anime_q5 = False
+                        lose5a = True
+                        f_sc_k()
+                    elif tap.colliderect(opm_rect):
+                        anime_q5 = False
+                        lose5a = True
+                        f_sc_a()
+                    elif tap.colliderect(akame_rect):
+                        anime_q5 = False
+                        lose5a = True
                         f_sc_a()
 
         if main_screen:
