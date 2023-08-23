@@ -10,11 +10,13 @@
     ```bash
     python3 -m venv venv && \ 
     source venv/bin/activate && \ 
+    cd victorina && \
     pip install -r requirements.txt
     ```
    ```powershell
     python -m venv venv && /
     .\venv\Scripts\Activate && /
+    cd .\victorina && \
     pip install -r requirements.txt
     ```
 3. Запустите игру
