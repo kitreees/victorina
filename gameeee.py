@@ -1,4 +1,4 @@
-import pygame, sys, time
+import pygame, sys
 
 pygame.init()
 
@@ -20,8 +20,6 @@ anime = pygame.image.load('for game/anime.jpg')
 anime_rect = anime.get_rect()
 anime_rect.x = 670
 anime_rect.y = 230
-# kpop1 = pygame.image.load('for game/k-pop1.jpg')
-# anime1 = pygame.image.load('for game/anime1.jpg')
 text = pygame.image.load('for game/text1.png')
 
 main_screen = True
@@ -37,9 +35,6 @@ kpop_q4 = False
 anime_q4 = False
 kpop_q5 = False
 anime_q5 = False
-
-# bg_k = pygame.image.load('for game/bg_k.jpg')
-# bg_a = pygame.image.load('for game/bg_a.jpg')
 
 kpop_q1_img = pygame.image.load('for game/gidle.png')
 kpop_q2_img = pygame.image.load('for game/enha.jpg')
@@ -638,14 +633,6 @@ def main():
             sc.blit(text, (350, 70))
             sc.blit(kpop, kpop_rect)
             sc.blit(anime, anime_rect)
-        #
-        # if kpop_screen:
-        #     sc.blit(bg, (0, 0))
-        #     kpop_q1 = True
-
-        # if anime_screen:
-        #     sc.blit(bg, (0, 0))
-        #     anime_q1 = True
 
         if lose1k:
             f_sc_k()
